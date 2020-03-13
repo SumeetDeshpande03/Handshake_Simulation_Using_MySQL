@@ -39,7 +39,7 @@ class Bio extends React.Component {
       .post(`http://localhost:3000/api/student/upload/${id}`, fd)
       .then(res => {
         if (res.status === 200) {
-          this.setState({img: 'https://test-handshake.s3.amazonaws.com/profile_'+id})
+          this.setState({img: 'https://sumeet-handshake.s3.amazonaws.com/profile_'+id})
         }
       })
       .catch(err => {

@@ -2,6 +2,46 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const pool = require('../../config/sqldb');
+const aws = require('aws-sdk');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
+
+aws.config.update({
+  secretAccessKey: "OPn9BvDzuapEmYYtIrGL2cOg7rzvkjPuLTyQmzjS",
+  accessKeyId: "AKIAJ6ZJU6FKIW56EPGA",
+  region: 'us-east-1'
+});
+
+const s3 = new aws.S3();
+
+
+const upload = multer({
+  storage: multerS3({
+      s3: s3,
+      acl: 'public-read',
+      bucket: 'sumeet-handshake',
+      key: function (req, file, cb) {
+        console.log(req.params.id);
+          console.log(file);
+          cb(null, 'profile_' + req.params.id);
+      }
+  })
+});
+
+const upload2 = multer({
+  storage: multerS3({
+      s3: s3,
+      acl: 'public-read',
+      bucket: 'sumeet-handshake',
+      contentType: multerS3.AUTO_CONTENT_TYPE,
+      contentDisposition: 'inline',
+      key: function (req, file, cb) {
+        console.log(req.params.id);
+          console.log(file);
+          cb(null, 'resume_' + req.params.id);
+      }
+  })
+});
 
 router.get('/', (req, res) => {
   try {
@@ -317,6 +357,29 @@ router.put('/experience/:id', (req, res) => {
     console.log(err);
     res.status(500).send('server error!');
   }
+});
+
+router.post('/upload/:id', upload.array('upl',1), (req, res, next) => {
+  const id = req.params.id;
+  const profile_path = 'https://sumeet-handshake.s3.amazonaws.com/profile_' + id;
+  try {
+    pool.query(`UPDATE student_information set student_profile_photo = '${profile_path}'   WHERE student_id=${id}`, (err, result) => {
+      if(err) {
+        console.log(err);
+        res.status(500).send('server error');
+      }
+      res.status(200).json({msg: 'uploaded!'})
+    })
+    
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('server error!');
+  }
+});
+
+router.post('/upload/resume/:id', upload2.array('upl',1), (req, res, next) => {
+  res.status(200).json({msg: 'uploaded'});
+  
 });
 
 module.exports = router;
