@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Header from './Header';
+import alt from '../images/alt.png';
 
 const EventPageStudent = (props) => {
     console.log(props);
@@ -26,8 +27,24 @@ const EventPageStudent = (props) => {
             <div>
                 <Header />
             </div>
-            <div className='ui container segment' style={{height:'200px'}} >
-            
+            <div className='ui container segment' style={{height:'300px'}} >
+            <div style={{float:'left', width:'20%'}}>
+            <div className='ui small image' style={{ float: 'left', marginRight: '3%' }}>
+              <img src={alt}/>
+              
+            </div>
+            </div>
+            <div style={{float:'left', width:'40%'}}>
+              <h3>Event Name: {props.location.state.event.event_name}</h3>
+              <p>Event Description: {props.location.state.event.event_description}</p>
+              <p>Event Timing: {props.location.state.event.event_timing}</p>
+              <p>Event From Date: {props.location.state.event.event_from_date}</p>
+              <p>Event To Date: {props.location.state.event.event_to_date}</p>
+              <p>Event Location: {props.location.state.event.event_location}</p>
+              <p>Event Eligibility Criteria: {props.location.state.event.event_eligibility_criteria}</p>
+              <p>Event Major: {props.location.state.event.event_eligibility_major}</p>
+            {/* <EventItem key={event.event_id} event={event} /> */}
+            </div>
             <button className='ui basic primary button' style={{float: 'right'}} onClick={onClickHandler}>Register</button>
             </div>
             <div>

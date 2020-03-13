@@ -32,7 +32,7 @@ class Event extends React.Component {
         <Header />
         <div className='container'>
           <div>
-            <ButtonMenu />
+            {/* <ButtonMenu /> */}
           </div>
           <div className='ui items' style={{float: 'left', width: '60%'}}>
             {this.state.upcomingEvents.map(event => {
@@ -59,7 +59,7 @@ class Event extends React.Component {
               marginRight: '40px'
             }}
           >
-            <EventSideList />
+            {/* <EventSideList /> */}
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Education from './Education';
 import Experience from './Experience';
 import AddForm from './AddForm';
+import AddExperienceForm from './AddExperienceForm'
 import Skills from './Skills';
 import {Form, TextArea} from 'semantic-ui-react';
 
@@ -17,6 +18,7 @@ class StudentProfile extends React.Component {
       educationDetails: [],
       experienceDetails: [],
       showAddForm: false,
+      showAddExperienceForm: false,
       showTextFrom: false,
       tempCareerObjective: ''
     };
@@ -60,6 +62,19 @@ class StudentProfile extends React.Component {
     this.setState({showAddForm: !this.state.showAddForm});
   }
 
+  onAddExperienceClick = () => {
+    this.setState({showAddExperienceForm: !this.state.showAddExperienceForm});
+  }
+
+  onAddExperience = (experience) => {
+    console.log('new', experience);
+    const list = [...this.state.experienceDetails, experience];
+    console.log(list);
+    this.setState({experienceDetails: list});
+    this.setState({showAddExperienceForm: !this.state.showAddExperienceForm});
+  }
+
+
   onAddJourney = () => {
       this.setState({showTextFrom: !this.state.showTextFrom});
   }
@@ -102,6 +117,18 @@ class StudentProfile extends React.Component {
     })
     this.setState({educationDetails: data});
   }
+
+  onUpdateExperience = (experience) => {
+    console.log(experience)
+    const data = this.state.experienceDetails.map((item) => {
+      if(item.experience_id === experience.experience_id) {
+        return experience
+      }
+      return item;
+    })
+    this.setState({experienceDetails: data});
+  }
+
 
   renderTextForm = () => {
       return (
@@ -169,11 +196,12 @@ class StudentProfile extends React.Component {
                 <b>Work Experience</b>
               <div className='ui items'>
               {this.state.experienceDetails.map(experience => {
-                return <Experience key={experience} experience={experience} />;
+                return <Experience key={experience} onUpdateExperience={this.onUpdateExperience} experience={experience} />;
               })}
               </div>
               <div>
-              <button class="fluid ui button">Add Work Experience</button>
+                {!this.state.showAddExperienceForm && <button class="fluid ui button" onClick={this.onAddExperienceClick}>Add Work Experience</button>}
+                {this.state.showAddExperienceForm && <AddExperienceForm onAddExperience={this.onAddExperience} toggle={this.onAddExperienceClick} />}
               </div>
             </div>
           </div>

@@ -19,7 +19,7 @@ class Education extends React.Component {
               >
                 <img src={img} />
               </div>
-              <div className='middle alligned content'>
+              <div className='middle aligned content'>
                 <div className='header'>
                 <i className='pencil alternate icon' onClick={this.onClickHandler} style={{ float: 'right' }}></i>
                   <h4>{this.props.education.institution_name}</h4>
