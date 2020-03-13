@@ -36,7 +36,7 @@ class Bio extends React.Component {
     console.log('uploading...')
     fd.append('upl', this.state.selectedFile);
     axios
-      .post(`http://localhost:3000/api/student/upload/${id}`, fd)
+      .post(`http://35.166.32.0:8080/api/student/upload/${id}`, fd)
       .then(res => {
         if (res.status === 200) {
           this.setState({img: 'https://sumeet-handshake.s3.amazonaws.com/profile_'+id})

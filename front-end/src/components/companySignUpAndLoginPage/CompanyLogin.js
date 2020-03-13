@@ -20,7 +20,7 @@ class CompanyLogin extends React.Component {
 
   onSubmitHandler = e => {
     e.preventDefault();
-    axios.post('http://localhost:3000/api/employer/login', {
+    axios.post('http://35.166.32.0:8080/api/employer/login', {
       company_email_id: this.state.company_email_id,
       company_password: this.state.company_password,
       }, {headers: {'Content-Type': 'application/json'}})

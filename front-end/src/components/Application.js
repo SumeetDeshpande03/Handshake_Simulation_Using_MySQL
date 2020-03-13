@@ -12,7 +12,7 @@ class Application extends React.Component {
   componentDidMount() {
       const id = 5;
     axios
-      .get(`http://localhost:3000/api/application/apply/${id}`)
+      .get(`http://35.166.32.0:8080/api/application/apply/${id}`)
       .then(res => {
         if (res.status === 200) {
           this.setState({ applications: res.data.result }, () => {

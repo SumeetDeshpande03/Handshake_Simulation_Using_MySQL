@@ -9,7 +9,7 @@ class StudentList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/api/student').then((res)=> {
+        axios.get('http://35.166.32.0:8080/api/student').then((res)=> {
             if(res.status === 200) {
                 console.log(res.data.result);
                 this.setState({students: res.data.result})
@@ -18,7 +18,7 @@ class StudentList extends React.Component {
             console.log(err);
         })
 
-        axios.get('http://localhost:3000/api/student').then((res)=> {
+        axios.get('http://35.166.32.0:8080/api/student').then((res)=> {
             if(res.status === 200) {
                 console.log(res.data.result);
                 this.setState({students: res.data.result})

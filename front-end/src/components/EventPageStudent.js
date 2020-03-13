@@ -9,7 +9,7 @@ const EventPageStudent = (props) => {
     const onClickHandler = () => {
         const id = 16
         axios
-      .post(`http://localhost:3000/api/event/registered/${id}`, {
+      .post(`http://35.166.32.0:8080/api/event/registered/${id}`, {
         event_id: props.location.state.event.event_id,
         company_id: props.location.state.event.company_id
       }, {headers: {'Content-Type': 'application/json'}})

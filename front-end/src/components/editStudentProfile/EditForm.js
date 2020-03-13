@@ -28,7 +28,7 @@ class EditForm extends React.Component {
     console.log(data);
     const id = this.props.data.education_id;
     axios
-      .put(`http://localhost:3000/api/student/education/${id}`, data, {headers: {'Content-Type': 'application/json'}})
+      .put(`http://35.166.32.0:8080/api/student/education/${id}`, data, {headers: {'Content-Type': 'application/json'}})
       .then(res => {
         if (res.status === 200) {
           this.props.onUpdateEducation({...data, education_id: id})

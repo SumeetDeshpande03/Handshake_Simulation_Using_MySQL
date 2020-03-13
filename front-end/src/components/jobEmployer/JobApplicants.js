@@ -11,7 +11,7 @@ class JobApplicants extends React.Component {
   componentDidMount() {
     const id = this.props.location.state.job.job_id;
     axios
-      .get(`http://localhost:3000/api/application/job/${id}`)
+      .get(`http://35.166.32.0:8080/api/application/job/${id}`)
       .then(res => {
         if (res.status === 200) {
           this.setState({ applications: res.data.result }, () => {

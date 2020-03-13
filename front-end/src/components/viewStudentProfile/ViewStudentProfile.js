@@ -13,21 +13,21 @@ class ViewStudentProfile extends React.Component {
     componentDidMount() {
         //const id = this.props.location.state.id;
         const id = 17;
-        axios.get(`http://localhost:3000/api/student/${id}`).then((res) => {  
+        axios.get(`http://35.166.32.0:8080/api/student/${id}`).then((res) => {  
             if(res.status === 200) {
                 console.log(res.data);
                 this.setState({basicDetail: res.data.result})
             }
         })
 
-        axios.get(`http://localhost:3000/api/student/education/${id}`).then((res) => {  
+        axios.get(`http://35.166.32.0:8080/api/student/education/${id}`).then((res) => {  
             if(res.status === 200) {
                 console.log(res.data);
                 this.setState({educationDetails: res.data.result})
             }
         })
 
-        axios.get(`http://localhost:3000/api/student/experience/${id}`).then((res) => {  
+        axios.get(`http://35.166.32.0:8080/api/student/experience/${id}`).then((res) => {  
             if(res.status === 200) {
                 console.log(res.data);
                 this.setState({experienceDetails: res.data.result})

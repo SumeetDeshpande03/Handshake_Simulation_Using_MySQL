@@ -27,7 +27,7 @@ class EventPost extends React.Component {
   onSubmitHandler = e => {
     e.preventDefault();
     axios
-      .post('http://localhost:3000/api/event', {
+      .post('http://35.166.32.0:8080/api/event', {
         event_name: this.state.event_name,
         event_description: this.state.event_description,
         event_timing: this.state.event_timing,

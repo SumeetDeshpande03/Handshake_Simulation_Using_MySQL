@@ -22,7 +22,7 @@ class StudentLogin extends React.Component {
 
   onSubmitHandler = e => {
     e.preventDefault();
-    axios.post('http://localhost:3000/api/student/login', {
+    axios.post('http://35.166.32.0:8080/api/student/login', {
       student_email_id: this.state.student_email_id,
       student_password: this.state.student_password
       }, {headers: {'Content-Type': 'application/json'}})

@@ -26,14 +26,14 @@ class StudentProfile extends React.Component {
   componentDidMount() {
     //const id = this.props.location.state.id;
     const id = sessionStorage.getItem("studentId");
-    axios.get(`http://localhost:3000/api/student/${id}`).then(res => {
+    axios.get(`http://35.166.32.0:8080/api/student/${id}`).then(res => {
       if (res.status === 200) {
         console.log(res.data);
         this.setState({ basicDetail: res.data.result });
       }
     });
 
-    axios.get(`http://localhost:3000/api/student/education/${id}`).then(res => {
+    axios.get(`http://35.166.32.0:8080/api/student/education/${id}`).then(res => {
       if (res.status === 200) {
         console.log(res.data);
         this.setState({ educationDetails: res.data.result });
@@ -41,7 +41,7 @@ class StudentProfile extends React.Component {
     });
 
     axios
-      .get(`http://localhost:3000/api/student/experience/${id}`)
+      .get(`http://35.166.32.0:8080/api/student/experience/${id}`)
       .then(res => {
         if (res.status === 200) {
           console.log(res.data);
@@ -88,7 +88,7 @@ class StudentProfile extends React.Component {
     data[0].career_objective = this.state.tempCareerObjective;
     console.log('new', data);
     axios
-      .post('http://localhost:3000/api/student/basic/1', data[0], {headers: {'Content-Type': 'application/json'}})
+      .post('http://35.166.32.0:8080/api/student/basic/1', data[0], {headers: {'Content-Type': 'application/json'}})
       .then(res => {
         if (res.status === 200) {
           this.setState({basicDetail: data})

@@ -24,7 +24,7 @@ class AddExperienceForm extends React.Component {
     e.preventDefault();
     console.log(this.state);
     axios
-      .post('http://localhost:3000/api/student/experience/18', this.state, {headers: {'Content-Type': 'application/json'}})
+      .post('http://35.166.32.0:8080/api/student/experience/18', this.state, {headers: {'Content-Type': 'application/json'}})
       .then(res => {
         if (res.status === 200) {
           console.log(res.data.result.insertId);

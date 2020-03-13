@@ -30,7 +30,7 @@ class Jobs extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:3000/api/job`)
+      .get(`http://35.166.32.0:8080/api/job`)
       .then(res => {
         if (res.status === 200) {
           this.setState({ jobs: res.data.result }, () => {
@@ -55,11 +55,11 @@ class Jobs extends React.Component {
     console.log('uploading...')
     fd.append('upl', this.state.selectedFile);
     axios
-      .post(`http://localhost:3000/api/student/upload/resume/${id}`, fd)
+      .post(`http://35.166.32.0:8080/api/student/upload/resume/${id}`, fd)
       .then(res => {
         if (res.status === 200) {
           axios
-            .post('http://localhost:3000/api/application', {
+            .post('http://35.166.32.0:8080/api/application', {
               application_status: 'pending',
               application_date: 'Feb 2020',
               student_id: id,

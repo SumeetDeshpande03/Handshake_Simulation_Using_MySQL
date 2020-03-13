@@ -12,7 +12,7 @@ class JobItemStudent extends React.Component {
 
   componentDidMount() {
     const id = this.props.job.company_id;
-    axios.get(`http://localhost:3000/api/employer/${id}`).then((res)=> {
+    axios.get(`http://35.166.32.0:8080/api/employer/${id}`).then((res)=> {
             if(res.status === 200) {
                 console.log(res.data.result);
                 this.setState({company_name: res.data.result[0].company_name})

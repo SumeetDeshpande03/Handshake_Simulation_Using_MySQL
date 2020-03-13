@@ -11,7 +11,7 @@ class SingleEvent extends React.Component {
   componentDidMount() {
     const id = 2;
     axios
-      .get(`http://localhost:3000/api/event/company/${id}`)
+      .get(`http://35.166.32.0:8080/api/event/company/${id}`)
       .then(res => {
         if (res.status === 200) {
           this.setState({ registeredStudents: res.data.result }, () => {

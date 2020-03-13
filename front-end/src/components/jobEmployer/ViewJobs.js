@@ -12,7 +12,7 @@ class ViewJobs extends React.Component {
   componentDidMount() {
     const id = 6;
     axios
-      .get(`http://localhost:3000/api/job/postings/${id}`)
+      .get(`http://35.166.32.0:8080/api/job/postings/${id}`)
       .then(res => {
         if (res.status === 200) {
           this.setState({ jobs: res.data.result }, () => {

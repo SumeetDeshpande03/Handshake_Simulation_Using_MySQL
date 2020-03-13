@@ -16,7 +16,7 @@ class Event extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:3000/api/event`)
+      .get(`http://35.166.32.0:8080/api/event`)
       .then(res => {
         if (res.status === 200) {
           this.setState({ upcomingEvents: res.data.result });

@@ -23,7 +23,7 @@ class Skills extends React.Component {
         const data = {...this.props.skill};
         data.skillSet = str;
         axios
-        .post('http://localhost:3000/api/student/skill/1', data, {headers: {'Content-Type': 'application/json'}})
+        .post('http://35.166.32.0:8080/api/student/skill/1', data, {headers: {'Content-Type': 'application/json'}})
         .then(res => {
             if (res.status === 200) {
                 console.log(res.data.result);
@@ -55,7 +55,7 @@ class Skills extends React.Component {
         const data = {...this.props.skill};
         data.skillSet = str;
         axios
-        .post('http://localhost:3000/api/student/skill/17', data, {headers: {'Content-Type': 'application/json'}})
+        .post('http://35.166.32.0:8080/api/student/skill/17', data, {headers: {'Content-Type': 'application/json'}})
         .then(res => {
             if (res.status === 200) {
                 console.log(res.data.result);
