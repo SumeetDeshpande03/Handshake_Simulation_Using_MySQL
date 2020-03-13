@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom'
 import logo from '../../images/handshake-logo-square.png'
 import { Redirect } from 'react-router';
+import Navbar from '../companyNavbar';
 
 class JobPost extends React.Component {
   constructor() {
@@ -57,13 +58,16 @@ class JobPost extends React.Component {
       <div>
         <div>
           {this.state.redirect}
-          <div className="ui inverted blue stackable menu">
+          <div>
+            <Navbar/>
+          </div>
+          {/* <div className="ui inverted blue stackable menu">
                 <div className="item" style={{marginLeft: '2%'}}>
                     <Link className="item" to="/" >
                         <img src={logo}/>
                     </Link>
                 </div>
-          </div>
+          </div> */}
           <div style={{ float: 'left', width: '40%', marginLeft:'32%', marginTop: '20px' }}>
             <form className='ui form' onSubmit={this.onSubmitHandler}>
               <div className='field'>

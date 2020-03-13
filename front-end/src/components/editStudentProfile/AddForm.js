@@ -23,7 +23,7 @@ class AddForm extends React.Component {
     e.preventDefault();
     console.log(this.state);
     axios
-      .post('http://localhost:3000/api/student/education/1', this.state, {headers: {'Content-Type': 'application/json'}})
+      .post('http://localhost:3000/api/student/education/18', this.state, {headers: {'Content-Type': 'application/json'}})
       .then(res => {
         if (res.status === 200) {
           console.log(res.data.result.insertId);

@@ -19,11 +19,11 @@ const Menu = () => {
                 </div>
             </div>
             <div className="right menu">
-                <Link className="item">Jobs</Link>
-                <Link className="item">Events</Link>
-                <Link className="item">Students</Link>
+                <Link className="item" to="/jobs">Jobs</Link>
+                <Link className="item" to="/event">Events</Link>
+                <Link className="item" to="/students">Students</Link>
                 <Link className="item" to='/myProfile'>Profile</Link>
-                <Link className="item">Logout</Link>
+                <Link className="item" to='/'> Logout</Link>
             </div>
         </div>
     );

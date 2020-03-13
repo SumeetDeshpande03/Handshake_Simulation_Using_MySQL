@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Header from '../Header';
+import Navbar from '../companyNavbar';
 
 class SingleEvent extends React.Component {
   constructor() {
@@ -26,7 +27,7 @@ class SingleEvent extends React.Component {
     return (
       <div>
         <div>
-          <Header />
+          <Navbar />
         </div>
       </div>
     );

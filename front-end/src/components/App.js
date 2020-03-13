@@ -18,6 +18,7 @@ import JobApplicants from './jobEmployer/JobApplicants';
 import Application from './Application';
 import StudentProfile from './editStudentProfile/StudentProfile';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ViewStudentApplication from './jobEmployer/ViewStudentApplication';
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
         <Route path='/student/profile' component={ViewStudentProfile} />
         <Route path='/event' component={Event} />
         <Route path='/students' component={Students} />
+        <Route path='/company/viewstudentapplication' component={ViewStudentApplication} />
       </div>
     </Router>
   )
