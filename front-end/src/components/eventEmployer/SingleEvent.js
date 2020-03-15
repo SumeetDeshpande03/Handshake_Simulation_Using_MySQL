@@ -9,7 +9,7 @@ class SingleEvent extends React.Component {
     this.state = { registeredStudents: [] };
   }
   componentDidMount() {
-    const id = 2;
+    const id = 1;
     axios
       .get(`http://35.166.32.0:8080/api/event/company/${id}`)
       .then(res => {
